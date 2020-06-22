@@ -1,6 +1,8 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,12 +27,16 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.openclassrooms.entrevoisins.R.id.favorite;
+import static com.openclassrooms.entrevoisins.R.id.first_neighbour_name;
 import static com.openclassrooms.entrevoisins.R.id.item_list_avatar;
+import static com.openclassrooms.entrevoisins.R.id.neighbour_avatar;
+import static java.lang.System.load;
 
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public static final String EXTRA_NEIGHBOUR = "com.example.myfirstapp.EXTRA_NEIGHBOUR";
 
 
     public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
@@ -41,10 +47,9 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_neighbour, parent, false);
-        return new ViewHolder(view);
-    }
+        return new ViewHolder(view);}
 
-    @Override
+        @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Neighbour neighbour = mNeighbours.get(position);
         holder.mNeighbourName.setText(neighbour.getName());
@@ -63,9 +68,21 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), DetailsNeighbourActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(EXTRA_NEIGHBOUR, neighbour);
+                intent.putExtras(bundle);
                 v.getContext().startActivity(intent);
             }
         });
+
+        holder.mFavoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), FavoriteListNeighbourActivity.class);
+                Bundle bundle = new Bundle();
+            }
+        });
+
     }
 
     @Override
@@ -74,12 +91,15 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(item_list_avatar)
+        @BindView(R.id.item_list_avatar)
         public ImageView mNeighbourAvatar;
         @BindView(R.id.item_list_name)
         public TextView mNeighbourName;
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
+        @BindView(R.id.favorite)
+        public FloatingActionButton mFavoriteButton;
+
 
         public ViewHolder(View view) {
             super(view);
@@ -88,6 +108,9 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     }
 
     public void sendMessage(View view) {
+    }
+    public void  sendMessage2 (View view){
+
     }
 
 }

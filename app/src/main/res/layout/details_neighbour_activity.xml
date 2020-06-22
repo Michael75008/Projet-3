@@ -11,12 +11,14 @@
 
     <ImageView
         android:id="@+id/neighbour_avatar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toTopOf="@+id/first_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -24,8 +26,8 @@
         android:layout_width="34dp"
         android:layout_height="39dp"
         android:src="@drawable/ic_return_arrow"
-        app:layout_editor_absoluteX="20dp"
-        app:layout_editor_absoluteY="20dp" />
+        app:layout_goneMarginLeft="20dp"
+        app:layout_goneMarginRight="20dp" />
 
     <TextView
         android:id="@+id/first_neighbour_name"
@@ -71,8 +73,7 @@
                 android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@+id/localisation_logo"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.562"
-                tools:layout_editor_absoluteX="16dp" />
+                app:layout_editor_absoluteX="16dp" />
 
             <View
                 android:id="@+id/view"
@@ -191,18 +192,20 @@
      </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
-    <ImageButton
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/favorite"
         android:layout_width="64dp"
         android:layout_height="60dp"
-        android:background="@drawable/ic_web_icon"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/ic_fav_icon"
         android:clickable="true"
         android:onClick="onToggleStar"
         android:translationZ="10dp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/first_guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/first_guideline" />
+        app:layout_constraintTop_toTopOf="@+id/first_guideline"
+        app:layout_constraintVertical_bias="0.533" />
 
 
 </android.support.constraint.ConstraintLayout>
