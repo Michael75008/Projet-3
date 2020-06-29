@@ -74,15 +74,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 v.getContext().startActivity(intent);
             }
         });
-
-        holder.mFavoriteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), FavoriteListNeighbourActivity.class);
-                Bundle bundle = new Bundle();
-            }
-        });
-
     }
 
     @Override
@@ -97,8 +88,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         public TextView mNeighbourName;
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
-        @BindView(R.id.favorite)
-        public FloatingActionButton mFavoriteButton;
+
 
 
         public ViewHolder(View view) {
@@ -110,7 +100,5 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     public void sendMessage(View view) {
     }
     public void  sendMessage2 (View view){
-
     }
-
 }
