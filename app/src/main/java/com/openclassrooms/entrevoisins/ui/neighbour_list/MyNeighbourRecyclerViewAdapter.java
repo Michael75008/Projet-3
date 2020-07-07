@@ -39,6 +39,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     public static final String EXTRA_NEIGHBOUR = "com.example.myfirstapp.EXTRA_NEIGHBOUR";
 
 
+
     public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
         mNeighbours = items;
     }
@@ -74,6 +75,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 v.getContext().startActivity(intent);
             }
         });
+
     }
 
     @Override

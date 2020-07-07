@@ -25,6 +25,7 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      * get the number of pages
      * @return
      */
+
     @Override
     public int getCount() {
         return 1;
