@@ -44,10 +44,6 @@ public class Neighbour implements Serializable {
         this.aboutMe = aboutMe;
     }
 
-    public boolean getFavorite(){ return isFavorite;}
-
-    public void setFavorite(Boolean favorite){isFavorite = favorite; }
-
     public long getId() {
         return id;
     }

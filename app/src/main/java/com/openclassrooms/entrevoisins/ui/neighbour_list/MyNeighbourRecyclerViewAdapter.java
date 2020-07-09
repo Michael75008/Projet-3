@@ -36,7 +36,7 @@ import static java.lang.System.load;
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-    public static final String EXTRA_NEIGHBOUR = "com.example.myfirstapp.EXTRA_NEIGHBOUR";
+    public static final String EXTRA_NEIGHBOUR = "com.openclassroom.entrevoisins.EXTRA_NEIGHBOUR";
 
 
 
