@@ -55,32 +55,44 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
         setContentView(R.layout.details_neighbour_activity);
         ButterKnife.bind(this);
         Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
+        initData();
+        initView();
+        handlefloatingbutton();
+    }
+
+
+    public void initData() {
+        Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             mNeighbour = (Neighbour) bundle.getSerializable(EXTRA_NEIGHBOUR);
             mFirstNeighbourName.setText(mNeighbour.getName());
         }
-        Glide.with(this)
-                .load(mNeighbour.getAvatarUrl())
-                .centerCrop()
-                .placeholder(R.drawable.ic_launcher_background)
-                .into(mAvatar);
-        mSecondNeighbourName.setText(mNeighbour.getName());
-        mNeighbourPhone.setText(mNeighbour.getPhoneNumber());
-        mNeighbourDetails.setText(mNeighbour.getAboutMe());
-        mNeighbourAddress.setText(mNeighbour.getAddress());
     }
-}
-//
-//
-//    @OnClick(R.id.favorite)
-//    void onFavoriteClick(){ int toto = 3; }
-//
-//    private void handleFloatingButtonInit(){
-//       if(true){
-//        favoriteActButton.setImageResource(R.drawable.ic_star_white_24dp);}
-//       else {
-//           favoriteActButton.setImageResource(R.drawable.ic_star_border_white_24dp);}
-//         }
-//    }
-//
+        public void initView () {
+            Glide.with(this)
+                    .load(mNeighbour.getAvatarUrl())
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(mAvatar);
+            mSecondNeighbourName.setText(mNeighbour.getName());
+            mNeighbourPhone.setText(mNeighbour.getPhoneNumber());
+            mNeighbourDetails.setText(mNeighbour.getAboutMe());
+            mNeighbourAddress.setText(mNeighbour.getAddress());
+            handlefloatingbutton();
+        }
+
+        @OnClick(R.id.favorite)
+        void OnFavoriteClick () {
+            mNeighbour.setFavorite(mNeighbour.getFavorite());
+            handlefloatingbutton();
+        }
+
+
+        private void handlefloatingbutton () {
+            if (mNeighbour.getFavorite()) {
+                favoriteActButton.setImageResource((R.drawable.ic_star_white_24dp));
+            } else {
+                favoriteActButton.setImageResource(R.drawable.ic_star_border_white_24dp);
+            }
+        }
+    }
