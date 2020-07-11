@@ -3,6 +3,7 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.content.Intent;
 import android.media.Image;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -88,11 +89,12 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
         }
 
 
-        private void handlefloatingbutton () {
+        private void handlefloatingbutton() {
             if (mNeighbour.getFavorite()) {
                 favoriteActButton.setImageResource((R.drawable.ic_star_white_24dp));
+                getLayoutInflater();
             } else {
                 favoriteActButton.setImageResource(R.drawable.ic_star_border_white_24dp);
             }
         }
-    }
+}     
