@@ -37,7 +37,7 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     public ImageView mAvatar;
     @BindView(R.id.first_neighbour_name)
     public TextView mFirstNeighbourName;
-    @BindView(R.id.Second_neighbour_name)
+    @BindView(R.id.second_neighbour_name)
     public TextView mSecondNeighbourName;
     @BindView(R.id.localisation)
     public TextView mNeighbourAddress;
@@ -92,7 +92,6 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
         private void handlefloatingbutton() {
             if (mNeighbour.getFavorite()) {
                 favoriteActButton.setImageResource((R.drawable.ic_star_white_24dp));
-                getLayoutInflater();
             } else {
                 favoriteActButton.setImageResource(R.drawable.ic_star_border_white_24dp);
             }

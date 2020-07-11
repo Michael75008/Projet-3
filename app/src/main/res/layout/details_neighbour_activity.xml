@@ -10,21 +10,22 @@
 
     <ImageView
         android:id="@+id/neighbour_avatar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/match_parent"
+        android:layout_height="@dimen/match_parent"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/first_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/return_arrow"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="@dimen/image_margin"
+        android:layout_height="@dimen/image_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:src="@drawable/ic_return_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,8 +41,8 @@
         android:textSize="38sp"
         app:layout_constraintBottom_toTopOf="@+id/first_guideline"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="16dp"/>
+        android:layout_marginBottom="@dimen/text_margin"
+        android:layout_marginStart="@dimen/text_margin"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/first_guideline"
@@ -55,15 +56,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.70" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="@dimen/appbar_padding_top"
-        android:layout_marginTop="@dimen/appbar_padding_top"
-        android:layout_marginRight="@dimen/appbar_padding_top"
+        android:layout_height="@dimen/match_parent"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/normal_margin"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/first_guideline">
@@ -74,10 +77,10 @@
 
 
             <TextView
-                android:id="@+id/Second_neighbour_name"
-                android:layout_width="0dp"
+                android:id="@+id/second_neighbour_name"
+                android:layout_width="@dimen/match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/text_margin"
                 android:maxLines="1"
                 android:text="@string/Caroline"
                 android:textColor="@android:color/black"
@@ -91,35 +94,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="@android:color/darker_gray"
-                app:layout_constraintTop_toBottomOf="@+id/Second_neighbour_name" />
+                app:layout_constraintTop_toBottomOf="@+id/second_neighbour_name" />
 
             <ImageView
                 android:id="@+id/localisation_logo"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/image_margin"
+                android:layout_height="@dimen/image_margin"
                 android:src="@drawable/ic_localisation_point"
                 app:layout_constraintBottom_toBottomOf="@+id/localisation"
-                app:layout_constraintStart_toStartOf="@+id/Second_neighbour_name"
+                app:layout_constraintStart_toStartOf="@+id/second_neighbour_name"
                 app:layout_constraintTop_toTopOf="@+id/localisation" />
 
             <TextView
                 android:id="@+id/localisation"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="@dimen/extra_big_margin"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginBottom="10dp"
                 android:maxLines="1"
                 android:text="@string/saint_pierre_du_mont_5_kms"
                 android:textAlignment="textStart"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/phone_number"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/firstview" />
 
             <ImageView
                 android:id="@+id/phone_number_logo"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/image_margin"
+                android:layout_height="@dimen/image_margin"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/phone_number"
                 app:layout_constraintStart_toStartOf="@+id/localisation_logo"
@@ -128,21 +132,20 @@
 
             <TextView
                 android:id="@+id/phone_number"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginStart="@dimen/extra_big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:maxLines="1"
                 android:text="@string/_33_6_86_57_90_14"
                 android:textSize="18sp"
-                android:maxLines="1"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/localisation" />
 
             <ImageView
                 android:id="@+id/web_logo"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/image_margin"
+                android:layout_height="@dimen/image_margin"
                 android:layout_marginBottom="@dimen/appbar_padding_top"
                 app:layout_constraintBottom_toBottomOf="@+id/website"
                 app:layout_constraintStart_toStartOf="@+id/phone_number_logo"
@@ -151,14 +154,14 @@
 
             <TextView
                 android:id="@+id/website"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="@dimen/extra_big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginBottom="34dp"
+                android:maxLines="1"
                 android:text="@string/www_facebook_fr_caroline"
                 android:textSize="18sp"
-                android:maxLines="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -170,11 +173,11 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/appbar_padding_top"
-        android:layout_marginTop="12dp"
-        android:layout_marginRight="@dimen/appbar_padding_top"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:layout_marginRight="@dimen/small_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -186,9 +189,9 @@
 
             <TextView
                 android:id="@+id/description_title "
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/normal_margin"
                 android:text="@string/a_propos_de_moi"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"
@@ -199,7 +202,7 @@
 
             <View
                 android:id="@+id/view"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_parent"
                 android:layout_height="0.5dp"
                 android:layout_marginTop="@dimen/appbar_padding_top"
                 android:background="@android:color/darker_gray"
@@ -209,9 +212,9 @@
 
             <TextView
                 android:id="@+id/description_details"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/normal_margin"
                 android:text="@string/bonjour_je_souhaiterais_faire_de_la_marche_nordique_pas_initi_e_je_recherche_une_ou_plusieurs_personnes_susceptible_de_m_accompagner_j_aime_les_jeux_de_cartes_tels_la_belote_et_le_tarot"
                 android:textAlignment="textStart"
                 android:textSize="16sp"
@@ -226,7 +229,7 @@
         android:id="@+id/favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="@dimen/normal_margin"
         android:background="@drawable/ic_star_border_white_24dp"
         android:clickable="true"
         android:focusable="true"
