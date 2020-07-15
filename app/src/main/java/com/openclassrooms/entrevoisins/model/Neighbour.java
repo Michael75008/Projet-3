@@ -1,5 +1,7 @@
 package com.openclassrooms.entrevoisins.model;
 
+import android.support.design.widget.FloatingActionButton;
+
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import java.io.Serializable;
@@ -53,7 +55,8 @@ public class Neighbour implements Serializable {
 
     public void setFavorite(boolean favorite) {
         isFavorite = favorite;
-    }
+        }
+
 
     public long getId() {
         return id;

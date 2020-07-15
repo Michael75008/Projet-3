@@ -3,6 +3,7 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,13 +22,11 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
-
-public class NeighbourFragment extends Fragment {
+public class FavoriteNeighbourFragment extends Fragment {
 
     private NeighbourApiService mApiService;
-    private List<Neighbour> mNeighbours;
+    private List<Neighbour> mFavoriteNeighbours;
     private RecyclerView mRecyclerView;
-
 
     /**
      * Create and return a new instance
@@ -35,8 +34,8 @@ public class NeighbourFragment extends Fragment {
      * @return @{@link NeighbourFragment}
      */
     public static NeighbourFragment newInstance() {
-        NeighbourFragment fragment = new NeighbourFragment();
-        return fragment;
+        NeighbourFragment fragment2 = new NeighbourFragment();
+        return fragment2;
     }
 
     @Override
@@ -60,8 +59,8 @@ public class NeighbourFragment extends Fragment {
      * Init the List of neighbours
      */
     private void initList() {
-        mNeighbours = mApiService.getNeighbours();
-        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
+        mFavoriteNeighbours = mApiService.getNeighbours(); /* mApiService.getFavoriteNeighbours();*/
+        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mFavoriteNeighbours));
     }
 
     @Override
@@ -92,12 +91,4 @@ public class NeighbourFragment extends Fragment {
         mApiService.deleteNeighbour(event.neighbour);
         initList();
     }
-
-    /*
-    Add to favorite list if the user clicks on favorite fab
-
-    public boolean setfavorite(boolean updatefavorite) {return null;
-    }
-    */
 }
-

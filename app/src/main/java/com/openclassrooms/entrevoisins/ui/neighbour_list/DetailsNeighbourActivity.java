@@ -1,11 +1,13 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -47,8 +49,8 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     public TextView mNeighbourWebsite;
     @BindView(R.id.description_details)
     public TextView mNeighbourDetails;
-
-
+    @BindView(R.id.return_arrow)
+    public ImageView mReturnBackArrow;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,31 +71,36 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
             mFirstNeighbourName.setText(mNeighbour.getName());
         }
     }
-        public void initView () {
-            Glide.with(this)
-                    .load(mNeighbour.getAvatarUrl())
-                    .centerCrop()
-                    .placeholder(R.drawable.ic_launcher_background)
-                    .into(mAvatar);
-            mSecondNeighbourName.setText(mNeighbour.getName());
-            mNeighbourPhone.setText(mNeighbour.getPhoneNumber());
-            mNeighbourDetails.setText(mNeighbour.getAboutMe());
-            mNeighbourAddress.setText(mNeighbour.getAddress());
-            handlefloatingbutton();
-        }
 
-        @OnClick(R.id.favorite)
-        void OnFavoriteClick () {
-            mNeighbour.setFavorite(mNeighbour.getFavorite());
-            handlefloatingbutton();
-        }
+    public void initView() {
+        Glide.with(this)
+                .load(mNeighbour.getAvatarUrl())
+                .centerCrop()
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(mAvatar);
+        mSecondNeighbourName.setText(mNeighbour.getName());
+        mNeighbourPhone.setText(mNeighbour.getPhoneNumber());
+        mNeighbourDetails.setText(mNeighbour.getAboutMe());
+        mNeighbourAddress.setText(mNeighbour.getAddress());
+        handlefloatingbutton();
+    }
 
+    @OnClick(R.id.favorite)
+    void OnFavoriteClick() {
+        mNeighbour.setFavorite(mNeighbour.getFavorite());
+        handlefloatingbutton();
+    }
 
-        private void handlefloatingbutton() {
-            if (mNeighbour.getFavorite()) {
-                favoriteActButton.setImageResource((R.drawable.ic_star_white_24dp));
-            } else {
-                favoriteActButton.setImageResource(R.drawable.ic_star_border_white_24dp);
-            }
+    @OnClick(R.id.return_arrow)
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    private void handlefloatingbutton() {
+        if (mNeighbour.getFavorite()) {
+            favoriteActButton.setImageResource((R.drawable.ic_star_white_24dp));
+        } else {
+            favoriteActButton.setImageResource(R.drawable.ic_star_border_white_24dp);
         }
-}     
+    }
+}

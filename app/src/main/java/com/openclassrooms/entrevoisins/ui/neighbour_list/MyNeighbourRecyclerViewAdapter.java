@@ -98,9 +98,4 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             ButterKnife.bind(this, view);
         }
     }
-
-    public void sendMessage(View view) {
-    }
-    public void  sendMessage2 (View view){
-    }
 }

@@ -1,6 +1,7 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.os.Bundle;
+import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,6 @@ public class ListNeighbourActivity extends AppCompatActivity {
     ViewPager mViewPager;
 
 
-
     ListNeighbourPagerAdapter mPagerAdapter;
 
     @Override
@@ -39,6 +39,7 @@ public class ListNeighbourActivity extends AppCompatActivity {
         mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
         //setter du favorite
+
     }
 
 
