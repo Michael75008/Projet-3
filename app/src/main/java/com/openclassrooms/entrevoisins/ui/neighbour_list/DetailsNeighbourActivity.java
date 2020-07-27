@@ -95,13 +95,14 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     @OnClick(R.id.return_arrow)
     public void onBackPressed() {
         super.onBackPressed();
+        /*update favoriteneighbours méthod*/
     }
 
     private void handlefloatingbutton() {
         if (mNeighbour.getFavorite()) {
-            favoriteActButton.setImageResource((R.drawable.ic_star_white_24dp));
+            favoriteActButton.setImageResource((R.drawable.ic_star_border_white_24dp));
         } else {
-            favoriteActButton.setImageResource(R.drawable.ic_star_border_white_24dp);
+            favoriteActButton.setImageResource(R.drawable.ic_star_white_24dp);
         }
     }
 }

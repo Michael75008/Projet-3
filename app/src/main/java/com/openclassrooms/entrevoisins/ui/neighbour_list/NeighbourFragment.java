@@ -28,7 +28,6 @@ public class NeighbourFragment extends Fragment {
 
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
-    private List<Neighbour> mFavoriteNeighbours;
     private RecyclerView mRecyclerView;
     public boolean isFavorite = false;
 
@@ -42,14 +41,9 @@ public class NeighbourFragment extends Fragment {
      */
 
 
-    public static NeighbourFragment newInstance() {
-        NeighbourFragment fragment1 = new NeighbourFragment();
-        return fragment1;
-    }
-
-    public static NeighbourFragment newInstance2() {
-        NeighbourFragment fragment2 = new NeighbourFragment();
-        return fragment2;
+    public static NeighbourFragment newInstance(boolean isFavorite) {
+        NeighbourFragment fragment = new NeighbourFragment();
+        return fragment;
     }
 
 
@@ -77,14 +71,11 @@ public class NeighbourFragment extends Fragment {
     private void initList() {
         if(isFavorite) {
             mNeighbours = mApiService.getNeighbours();
-            mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
-            NeighbourFragment.newInstance();
         }
-        else if (!isFavorite) {
-            mFavoriteNeighbours = mApiService .setFavoriteNeighbours(2);
-            mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mFavoriteNeighbours));
-            NeighbourFragment.newInstance2();
+        else {
+            mNeighbours = mApiService.getFavoriteNeighbours();
         }
+        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
     }
 
 

@@ -10,11 +10,9 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
-    int mNumOfTabs;
+
     public ListNeighbourPagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
-        this.mNumOfTabs = NumOfTabs;
-
     }
     /**
      * getItem is called to instantiate the fragment for the given page.
@@ -26,11 +24,10 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return NeighbourFragment.newInstance();
-            case 1:
-                return NeighbourFragment.newInstance2();
-        };
-        return NeighbourFragment.newInstance();
+                return NeighbourFragment.newInstance(false);
+            default:
+                return NeighbourFragment.newInstance(true);
+        }
     }
 
 
@@ -43,5 +40,5 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return mNumOfTabs; }
+        return 2; }
 }

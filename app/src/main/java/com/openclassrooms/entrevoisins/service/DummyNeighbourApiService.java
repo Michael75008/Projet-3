@@ -14,8 +14,6 @@ import java.util.Objects;
 public class DummyNeighbourApiService implements  NeighbourApiService {
 
     private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
-    Neighbour mNeighbour;
-    private List<Neighbour> favoriteNeighbours = new ArrayList<>();
 
     /**
      * {@inheritDoc}
@@ -43,12 +41,13 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         neighbours.add(neighbour);
     }
 
-    public List<Neighbour> setFavoriteNeighbours(int i) {
-        for (i = 0; i < neighbours.size(); i++) {
-            if (mNeighbour.getFavorite()) {
-                neighbours = favoriteNeighbours;
-            }
-        }
-        return neighbours;
+    public List<Neighbour> getFavoriteNeighbours() {
+        List<Neighbour> currentNeighbours = new ArrayList<Neighbour>();
+        for(i=0; i<neighbours.size(); i++) {
+            Neighbour currentNeighbour = neighbours.get(i);
+        if (currentNeighbour.getFavorite()) {
+            neighbours.add(currentNeighbour);
+        }}
+        return currentNeighbours;
     }
 }
