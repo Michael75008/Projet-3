@@ -60,6 +60,7 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
         Intent intent = getIntent();
         initData();
         initView();
+        OnFavoriteClick();
         handlefloatingbutton();
     }
 

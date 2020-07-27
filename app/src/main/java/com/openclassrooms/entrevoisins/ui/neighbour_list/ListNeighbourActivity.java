@@ -33,17 +33,21 @@ public class ListNeighbourActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
-        mPagerAdapter = new ListNeighbourPagerAdapter(getSupportFragmentManager());
+        mPagerAdapter = new ListNeighbourPagerAdapter(getSupportFragmentManager(), 2);
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-
-        //setter du favorite
-
     }
 
+    public void OnTabSelected (TabLayout.Tab tab){
+        if(tab.getPosition()==0)
+            mViewPager.setCurrentItem(0);
+        else if(tab.getPosition()==1)
+            mViewPager.setCurrentItem(1);
+        }
 
-    @OnClick(R.id.add_neighbour)
+
+        @OnClick(R.id.add_neighbour)
     void addNeighbour() {
         AddNeighbourActivity.navigate(this);
     }

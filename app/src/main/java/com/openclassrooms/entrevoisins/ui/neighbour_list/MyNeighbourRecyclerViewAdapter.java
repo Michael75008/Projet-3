@@ -2,8 +2,11 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.ActionBarContainer;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,9 +43,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
 
 
 
-    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
-        mNeighbours = items;
-    }
+    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) { mNeighbours = items; }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -53,6 +54,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Neighbour neighbour = mNeighbours.get(position);
+
         holder.mNeighbourName.setText(neighbour.getName());
         Glide.with(holder.mNeighbourAvatar.getContext())
                 .load(neighbour.getAvatarUrl())
@@ -65,16 +67,17 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
             }
         });
-        holder.mNeighbourAvatar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), DetailsNeighbourActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(EXTRA_NEIGHBOUR, neighbour);
-                intent.putExtras(bundle);
-                v.getContext().startActivity(intent);
-            }
-        });
+
+            holder.mLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), DetailsNeighbourActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(EXTRA_NEIGHBOUR, neighbour);
+                    intent.putExtras(bundle);
+                    v.getContext().startActivity(intent);
+                }
+            });
 
     }
 
@@ -90,8 +93,8 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         public TextView mNeighbourName;
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
-
-
+        @BindView(R.id.item_list_container)
+        public ConstraintLayout mLayout;
 
         public ViewHolder(View view) {
             super(view);
