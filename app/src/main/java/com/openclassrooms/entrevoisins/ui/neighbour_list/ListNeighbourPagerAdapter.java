@@ -11,7 +11,7 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
 
-    public ListNeighbourPagerAdapter(FragmentManager fm, int NumOfTabs) {
+    public ListNeighbourPagerAdapter(FragmentManager fm, int NumOfPages) {
         super(fm);
     }
     /**

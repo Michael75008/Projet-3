@@ -39,13 +39,6 @@ public class ListNeighbourActivity extends AppCompatActivity {
         mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
     }
 
-    public void OnTabSelected (TabLayout.Tab tab){
-        if(tab.getPosition()==0)
-            mViewPager.setCurrentItem(0);
-        else if(tab.getPosition()==1)
-            mViewPager.setCurrentItem(1);
-        }
-
 
         @OnClick(R.id.add_neighbour)
     void addNeighbour() {
