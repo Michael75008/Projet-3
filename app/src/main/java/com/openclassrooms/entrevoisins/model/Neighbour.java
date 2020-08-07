@@ -1,12 +1,14 @@
 package com.openclassrooms.entrevoisins.model;
 
 import java.io.Serializable;
+import java.util.MissingFormatArgumentException;
 import java.util.Objects;
 
 /**
  * Model object representing a Neighbour
  */
 public class Neighbour implements Serializable {
+
 
     /** Identifier */
     private long id;
@@ -28,6 +30,7 @@ public class Neighbour implements Serializable {
 
     private boolean isFavorite;
 
+
     /**
      * Constructor
      * @param id
@@ -43,6 +46,7 @@ public class Neighbour implements Serializable {
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
         this.isFavorite = false;
+
     }
 
     public boolean getFavorite() {
@@ -50,12 +54,10 @@ public class Neighbour implements Serializable {
     }
 
     public void setFavorite(boolean favorite) {
-        isFavorite = favorite; }
+        this.isFavorite = favorite; }
 
 
-    public long getId() {
-        return id;
-    }
+    public long getId() { return id; }
 
     public void setId(long id) {
         this.id = id;

@@ -1,5 +1,7 @@
 package com.openclassrooms.entrevoisins.service;
 
+import android.widget.CheckBox;
+
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourPagerAdapter;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourFragment;
@@ -41,13 +43,22 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         neighbours.add(neighbour);
     }
 
+    /**
+     * Get Favorite Neighbour List
+     */
+
     public List<Neighbour> getFavoriteNeighbours() {
         List<Neighbour> currentNeighbours = new ArrayList<>();
-        for(int i=0; i<neighbours.size(); i++) {
+        for (int i = 0; i < neighbours.size(); i++) {
             Neighbour currentNeighbour = neighbours.get(i);
-        if (currentNeighbour.getFavorite()) {
-            neighbours.add(currentNeighbour);
-        }}
+            if (currentNeighbour.getFavorite()) {
+                neighbours.add(currentNeighbour);
+            }
+        }
         return currentNeighbours;
     }
 }
+    /**
+     * Update Favorite Neighbour List
+     *
+     */

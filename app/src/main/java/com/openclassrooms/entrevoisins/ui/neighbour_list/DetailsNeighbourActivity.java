@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +17,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -52,6 +55,7 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     @BindView(R.id.return_arrow)
     public ImageView mReturnBackArrow;
 
+    public boolean isfavorite = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +64,6 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
         Intent intent = getIntent();
         initData();
         initView();
-        OnFavoriteClick();
         handlefloatingbutton();
     }
 
@@ -87,8 +90,9 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.favorite)
-    void OnFavoriteClick() {
-        mNeighbour.setFavorite(mNeighbour.getFavorite());
+    public void OnFavoriteClick() {
+        mNeighbour.getFavorite();
+        mNeighbour.setFavorite(true);
         handlefloatingbutton();
     }
 
@@ -100,9 +104,9 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
 
     private void handlefloatingbutton() {
         if (mNeighbour.getFavorite()) {
-            favoriteActButton.setImageResource((R.drawable.ic_star_border_white_24dp));
+            favoriteActButton.setImageResource((R.drawable.ic_star_white_24dp));
         } else {
-            favoriteActButton.setImageResource(R.drawable.ic_star_white_24dp);
+            favoriteActButton.setImageResource(R.drawable.ic_star_border_white_24dp);
         }
     }
 }

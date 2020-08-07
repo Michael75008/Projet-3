@@ -11,7 +11,7 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
 
-    public ListNeighbourPagerAdapter(FragmentManager fm, int NumOfPages) {
+    public ListNeighbourPagerAdapter(FragmentManager fm) {
         super(fm);
     }
     /**
@@ -23,10 +23,9 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0:
-                return NeighbourFragment.newInstance(false);
-            default:
-                return NeighbourFragment.newInstance(true);
+            case 1: return NeighbourFragment.newInstance(false);
+
+            default:return NeighbourFragment.newInstance(true);
         }
     }
 

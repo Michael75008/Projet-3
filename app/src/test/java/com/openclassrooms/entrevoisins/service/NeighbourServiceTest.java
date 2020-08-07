@@ -40,4 +40,9 @@ public class NeighbourServiceTest {
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
+
+    public void getFavoriteNeighbourWithSucces(){
+        List<Neighbour} favoriteNeighbours = service.g();
+        List<Neighbour> expectedNeighbours = service.getFavoriteNeighbours();
+}
 }
