@@ -16,8 +16,10 @@ import android.widget.Toolbar;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
+import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +58,7 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     public ImageView mReturnBackArrow;
 
     public boolean isfavorite = false;
+    private NeighbourApiService mApiService;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +68,7 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
         initData();
         initView();
         handlefloatingbutton();
+        mApiService = DI.getNeighbourApiService();
     }
 
 
@@ -91,15 +95,14 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
 
     @OnClick(R.id.favorite)
     public void OnFavoriteClick() {
-        mNeighbour.getFavorite();
-        mNeighbour.setFavorite(true);
+        mNeighbour.setFavorite(!mNeighbour.getFavorite());
         handlefloatingbutton();
     }
 
     @OnClick(R.id.return_arrow)
     public void onBackPressed() {
         super.onBackPressed();
-        /*update favoriteneighbours méthod*/
+        mApiService.updateFavoriteNeighbour(mNeighbour);
     }
 
     private void handlefloatingbutton() {
