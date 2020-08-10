@@ -34,7 +34,7 @@ import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyc
 
 public class DetailsNeighbourActivity extends AppCompatActivity {
 
-
+    private NeighbourApiService mApiService;
     private Neighbour mNeighbour;
     public static final String FAVORITE_NEIGHBOUR = "com.openclassrooms.entrevoisins.FAVORITE_NEIGHBOUR";
 
@@ -57,8 +57,7 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     @BindView(R.id.return_arrow)
     public ImageView mReturnBackArrow;
 
-    public boolean isfavorite = false;
-    private NeighbourApiService mApiService;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +79,7 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
         }
     }
 
+
     public void initView() {
         Glide.with(this)
                 .load(mNeighbour.getAvatarUrl())
@@ -93,17 +93,20 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
         handlefloatingbutton();
     }
 
+
     @OnClick(R.id.favorite)
     public void OnFavoriteClick() {
         mNeighbour.setFavorite(!mNeighbour.getFavorite());
         handlefloatingbutton();
     }
 
+
     @OnClick(R.id.return_arrow)
     public void onBackPressed() {
         super.onBackPressed();
         mApiService.updateFavoriteNeighbour(mNeighbour);
     }
+
 
     private void handlefloatingbutton() {
         if (mNeighbour.getFavorite()) {

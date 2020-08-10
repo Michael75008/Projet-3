@@ -46,8 +46,11 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     }
 
     /**
-     * Get Favorite Neighbour List
+     *{@inheritDoc}
+     *
+     * @return favorite neighbour
      */
+
     public List<Neighbour> getFavoriteNeighbours() {
         List<Neighbour> currentNeighbours = new ArrayList<>();
         for (int i = 0; i < neighbours.size(); i++) {
@@ -59,12 +62,19 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         return currentNeighbours;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param neighbour (favorite)
+     */
+
 
     public void updateFavoriteNeighbour(Neighbour neighbour) {
         for (int i = 0; i < neighbours.size(); i++) {
             Neighbour currentNeighbour = neighbours.get(i);
-            if (currentNeighbour.getId() == neighbour.getId()) ;
-            currentNeighbour.setFavorite(neighbour.getFavorite());
+            if (currentNeighbour.getId() == neighbour.getId()) {
+                currentNeighbour.setFavorite(neighbour.getFavorite());
+            }
         }
     }
 }
