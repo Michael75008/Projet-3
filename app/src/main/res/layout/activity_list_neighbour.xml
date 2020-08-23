@@ -41,7 +41,8 @@
                 android:id="@+id/tabItem2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tab_favorites_title" />
+                android:text="@string/tab_favorites_title"
+                android:contentDescription="@string/favorites"/>
 
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>

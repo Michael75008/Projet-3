@@ -1,29 +1,17 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,9 +24,8 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
 
     private NeighbourApiService mApiService;
     private Neighbour mNeighbour;
-    public static final String FAVORITE_NEIGHBOUR = "com.openclassrooms.entrevoisins.FAVORITE_NEIGHBOUR";
 
-    @BindView(R.id.favorite)
+    @BindView(R.id.floating_action_button)
     public FloatingActionButton favoriteActButton;
     @BindView(R.id.neighbour_avatar)
     public ImageView mAvatar;
@@ -56,7 +43,6 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     public TextView mNeighbourDetails;
     @BindView(R.id.return_arrow)
     public ImageView mReturnBackArrow;
-
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +80,7 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     }
 
 
-    @OnClick(R.id.favorite)
+    @OnClick(R.id.floating_action_button)
     public void OnFavoriteClick() {
         mNeighbour.setFavorite(!mNeighbour.getFavorite());
         handlefloatingbutton();

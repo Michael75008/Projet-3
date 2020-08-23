@@ -226,7 +226,7 @@
     </android.support.v7.widget.CardView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/favorite"
+        android:id="@+id/floating_action_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/normal_margin"
@@ -235,9 +235,11 @@
         android:focusable="true"
         android:src="@drawable/ic_star_white_24dp"
         android:visibility="visible"
+        android:contentDescription="favorite button"
         app:layout_constraintBottom_toTopOf="@+id/first_guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/first_guideline" />
+        app:layout_constraintTop_toTopOf="@+id/first_guideline"
+        />
 
 
 </android.support.constraint.ConstraintLayout>

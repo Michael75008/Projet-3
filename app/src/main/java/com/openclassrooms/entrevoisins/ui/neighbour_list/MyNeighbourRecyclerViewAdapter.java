@@ -3,15 +3,10 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.ActionBarContainer;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,7 +16,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.DetailsNeighbourActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -29,12 +23,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.openclassrooms.entrevoisins.R.id.favorite;
-import static com.openclassrooms.entrevoisins.R.id.first_neighbour_name;
-import static com.openclassrooms.entrevoisins.R.id.item_list_avatar;
-import static com.openclassrooms.entrevoisins.R.id.neighbour_avatar;
-import static java.lang.System.load;
+import butterknife.OnClick;
 
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
@@ -42,16 +31,18 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     public static final String EXTRA_NEIGHBOUR = "com.openclassroom.entrevoisins.EXTRA_NEIGHBOUR";
 
 
-
-    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) { mNeighbours = items; }
+    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
+        mNeighbours = items;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_neighbour, parent, false);
-        return new ViewHolder(view);}
+        return new ViewHolder(view);
+    }
 
-        @Override
+    @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Neighbour neighbour = mNeighbours.get(position);
 
@@ -68,16 +59,16 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             }
         });
 
-            holder.mLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), DetailsNeighbourActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable(EXTRA_NEIGHBOUR, neighbour);
-                    intent.putExtras(bundle);
-                    v.getContext().startActivity(intent);
-                }
-            });
+        holder.mLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), DetailsNeighbourActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(EXTRA_NEIGHBOUR, neighbour);
+                intent.putExtras(bundle);
+                v.getContext().startActivity(intent);
+            }
+        });
 
     }
 

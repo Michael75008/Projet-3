@@ -33,8 +33,6 @@ public class NeighbourFragment extends Fragment {
     public boolean isFavorite = false;
 
 
-
-
     /**
      * Create and return a new instance
      *
@@ -47,7 +45,6 @@ public class NeighbourFragment extends Fragment {
         fragment.isFavorite = isFavorite;
         return fragment;
     }
-
 
 
     @Override
@@ -72,10 +69,9 @@ public class NeighbourFragment extends Fragment {
      * Init the List of neighbours
      */
     private void initList() {
-        if(isFavorite) {
+        if (isFavorite) {
             mNeighbours = mApiService.getNeighbours();
-        }
-        else {
+        } else {
             mNeighbours = mApiService.getFavoriteNeighbours();
         }
         mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
